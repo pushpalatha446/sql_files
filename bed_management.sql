@@ -11,7 +11,9 @@ insert into location_tag_map ( location_id, location_tag_id )
 values ((select location_id from location where name = 'ICU'), (select location_tag_id from location_tag where name = 'Admission Location'));
 insert into location ( name, description, creator, date_created, uuid, parent_location)
 values ( 'Physical Space for ICU','Physical space','1',now(), uuid(),
-(SELECT location_id FROM location where name = 'ICU')
+(SELECT id FROM
+			(SELECT location_id as id FROM location where name = 'ICU')
+			AS tmptable)
 );
 
 insert into location_tag_map ( location_id, location_tag_id )
@@ -38,7 +40,9 @@ values ((select location_id from location where name = 'General Ward'), (select 
 
 insert into location ( name, description, creator, date_created, uuid, parent_location)
 values ( 'Physical Space for General Ward','Physical space','1',now(), uuid(),
-(SELECT location_id FROM location where name = 'General Ward')
+(SELECT id FROM
+			(SELECT location_id as id FROM location where name = 'General Ward')
+			AS tmptable)
 );
 
 insert into location_tag_map ( location_id, location_tag_id )
