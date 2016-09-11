@@ -2,7 +2,7 @@
 insert into location_tag ( name, description, creator, date_created, uuid )
 values ( 'Admission Location', 'When a user is selecting a ward to admit a patient, they may choose one with this tag', '1', now(), uuid() );
 
-insert into bed_type (bed_type_id, name, display_name, description) values(101, "General Bed", "General Bed", "This is the general bed type");
+insert into bed_type (bed_type_id, name, display_name, description) values(101, "General Bed", "Normal Bed", "This is the general bed type");
 insert into bed_type (bed_type_id, name, display_name, description) values(102, "ICU Bed", "ICU Bed", "This is the icu bed type");
 
 insert into location ( name, description, creator, date_created, uuid )
